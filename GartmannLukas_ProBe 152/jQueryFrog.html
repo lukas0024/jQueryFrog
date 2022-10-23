@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=, maximum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+
+  <title>ProBe</title>
+
+  <style>
+    .parent {
+      cursor: url("resources/frog.png"), default;
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <script>
+    var points = 0;
+    var start = false;
+
+    $(document).ready(function () {
+      let btn = document.createElement("button");
+      btn.className = "btn btn-warning";
+      btn.innerHTML = "Start-Game";
+      btn.style.marginTop = "-45vw"
+      btn.style.marginLeft = "4vw"
+      btn.onclick = function () {
+        btn.style.display = "none";
+        rightside();
+        leftside();
+        loop3();
+        loop1();
+        loop2();
+        loop4();
+      };
+      document.body.appendChild(btn);
+    });
+
+    var number1;
+    var number2;
+    var number3;
+    var number4;
+
+    $(document).ready(function () {
+      (function repeat() {
+        number1 = 1000 + Math.random() * 1000;
+        setTimeout(repeat, number1);
+      })();
+      (function repeat() {
+        number2 = 1000 + Math.random() * 1000;
+        setTimeout(repeat, number2);
+      })();
+      (function repeat() {
+        number3 = 1000 + Math.random() * 1000;
+        setTimeout(repeat, number3);
+      })();
+      (function repeat() {
+        number4 = 1000 + Math.random() * 1000;
+        setTimeout(repeat, number4);
+      })();
+      (function repeat() {
+        var myPix = new Array("resources/car2.png", "resources/car1.png", "resources/car4.png");
+        var randomNum = Math.floor(Math.random() * myPix.length);
+        document.getElementById("car3").src = myPix[randomNum];
+        setTimeout(repeat, number1 + 50);
+      })();
+      (function repeat() {
+        var myPix = new Array("resources/car2.png", "resources/car1.png", "resources/car4.png");
+        var randomNum = Math.floor(Math.random() * myPix.length);
+        document.getElementById("car4").src = myPix[randomNum];
+        setTimeout(repeat, number2 + 50);
+      })();
+      (function repeat() {
+        var myPix = new Array("resources/car.png", "resources/car3.png", "resources/car5.png");
+        var randomNum = Math.floor(Math.random() * myPix.length);
+        document.getElementById("car1").src = myPix[randomNum];
+        setTimeout(repeat, number3 + 50);
+      })();
+      (function repeat() {
+        var myPix = new Array("resources/car.png", "resources/car3.png", "resources/car5.png");
+        var randomNum = Math.floor(Math.random() * myPix.length);
+        document.getElementById("car2").src = myPix[randomNum];
+        setTimeout(repeat, number4 + 50);
+      })();
+    });
+
+    var rightside = function () {
+      $(".rightside").hover(function () {
+        var color = $(this).css("background-color");
+        if (color == 'rgb(255, 0, 0)') {
+          points = points + 1;
+        }
+        $(this).css("background-color", "green");
+        $(".leftside").css("background-color", "red");
+        $(".points").html("points: " + points);
+      });
+    }
+
+    var leftside = function () {
+      $(".leftside").hover(function () {
+        var color = $(this).css("background-color");
+        if (color == 'rgb(255, 0, 0)') {
+          points = points + 1;
+        }
+        $(this).css("background-color", "green");
+        $(".rightside").css("background-color", "red");
+        $(".points").html("points: " + points);
+      });
+    }
+
+    var loop3 = function () {
+      $("#car3").animate(
+        { top: "+1500" },     // Eigenschaft
+        number1,                  // Dauer
+        'swing',               // Geschwindigkeit
+        function () {           // Callback
+          loop3()
+        }
+      );
+      $("#car3").css({ top: "0" });
+    };
+
+    var loop4 = function () {
+      $("#car4").animate(
+        { top: "+1500" },     // Eigenschaft
+        number2,                  // Dauer
+        'swing',               // Geschwindigkeit
+        function () {           // Callback
+          loop4()
+        }
+      );
+      $("#car4").css({ top: "0" });
+    };
+
+    var loop1 = function () {
+      $("#car1").animate(
+        { top: "-1500" },     // Eigenschaft
+        number3,                  // Dauer
+        'swing',               // Geschwindigkeit
+        function () {           // Callback
+          loop1()
+        }
+      );
+      $("#car1").css({ top: "0" });
+    };
+
+    var loop2 = function () {
+      $("#car2").animate(
+        { top: "-1500" },     // Eigenschaft
+        number4,                  // Dauer
+        'swing',               // Geschwindigkeit
+        function () {           // Callback
+          loop2()
+        }
+      );
+      $("#car2").css({ top: "0" });
+    };
+
+    $(document).ready(function () {
+      $("img").hover(function () {
+        $(".gameover").css({ visibility: "visible" });
+      });
+      $("nav").hover(function () {
+        $(".gameover").css({ visibility: "visible" });
+      });
+      $(document).mouseleave(function () {
+        $(".gameover").css({ visibility: "visible" });
+      });
+    });
+  </script>
+
+</head>
+
+<body class="y">
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" id="nav-title">ProBe Modul 152</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="bootstrap.html" id="nav-text">Bootstrap</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="jQuery.html" id="nav-text">JQuery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="jQueryFrog.html" id="nav-text">JQuery Frog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="multimedia.html" id="nav-text">Multimedia</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="parent">
+    <div class="leftside">
+      <h1 class="points">points: 0</h1>
+      <p style="color: yellow;">Wenn du von einem Auto getroffen wirst oder das Fenster verlässt, verlierst du.</p>
+    </div>
+    <div id="road">
+      <img src="resources/car.png" alt="car" id="car1">
+      <img src="resources/car3.png" alt="car" id="car2">
+      <img src="resources/car2.png" alt="car" id="car3">
+      <img src="resources/car1.png" alt="car" id="car4">
+    </div>
+    <div class="rightside"></div>
+  </div>
+
+  <div class="gameover"
+    style="background-color: red; position: absolute; text-align: center; color: yellow; z-index: 4; visibility: hidden;">
+    <h1 class="gtext">GAME OVER</h1>
+    <button type="button" class="btn btn-warning" onClick="window.location.reload();">Restart</button>
+  </div>
+
+</body>
+
+</html>

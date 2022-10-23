@@ -1,0 +1,177 @@
+#nav-pagetext {
+    color: white;
+    font-size: 15pt;
+}
+
+#nav-text:hover {
+    color: aqua;
+}
+
+#nav-title {
+    color: white;
+    font-size: 23pt;
+}
+
+nav {
+    z-index: 5;
+}
+
+#nav-text {
+    color: lightgray;
+    font-size: 15pt;
+}
+
+.y {
+    overflow: hidden;
+}
+
+#road {
+    background-image: url("resources/road.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50vw;
+    position: relative;
+    z-index: 2;
+}
+
+.leftside {
+    background-color: green;
+}
+
+.rightside {
+    background-color: red;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 100%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 100%;
+}
+
+
+#car1 {
+    position: fixed;
+    height: 22vw;
+    width: 8vw;
+    margin-top: 50vw;
+    margin-left: 55vw;
+    z-index: 2;
+}
+
+#car2 {
+    position: fixed;
+    height: 22vw;
+    width: 8vw;
+    margin-top: 50vw;
+    margin-left: 38vw;
+    z-index: 2;
+}
+
+#car3 {
+    position: fixed;
+    height: 22vw;
+    width: 8vw;
+    margin-top: -23vw;
+    margin-left: 5vw;
+    z-index: 2;
+}
+
+#car4 {
+    position: fixed;
+    height: 22vw;
+    width: 8vw;
+    margin-top: -23vw;
+    margin-left: 20vw;
+    z-index: 2;
+}
+
+.gameover {
+    margin-top: -50vw;
+    height: 100%;
+    width: 100%;
+}
+
+.gtext {
+    margin-top: 15vw;
+}
+
+.points {
+    color: yellow;
+}
+
+
+
+
+
+#carouselExampleControls {
+    width: 50vw;
+    height: 30vw;
+    margin-left: 25%;
+    margin-top: 5vh;
+}
+
+#carouselimg {
+    width: 20vw;
+    height: 30vw;
+}
+
+.blogo {
+    width: 10vw;
+    height: 10vw;
+    margin-left: 50%;
+    margin-top: -23%;
+}
+
+.left{
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    margin-right: 50%;
+}
+
+.right {
+    margin-left: 50%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+}
+
+
+.jlogo {
+    width: 10vw;
+    height: 10vw;
+    margin-left: 50%;
+    margin-top: -20%;
+}
+
+.c {
+    margin-left: 62vw;
+    margin-top: 3vw;
+}
+
+
+.GIF {
+    margin-top: 15%;
+    text-align: center;
+}
+
+.Video {
+    margin-top: 15%;
+    text-align: center;
+}
+
+.Audio {
+    margin-top: 15%;
+    text-align: center;
+}
